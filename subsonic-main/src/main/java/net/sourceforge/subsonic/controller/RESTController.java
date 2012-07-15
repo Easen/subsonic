@@ -135,7 +135,8 @@ public class RESTController extends MultiActionController {
     }
 
     public void getLicense(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        request = wrapRequest(request);
+        /*
+    	request = wrapRequest(request);
         XMLBuilder builder = createXMLBuilder(request, response, true);
 
         String email = settingsService.getLicenseEmail();
@@ -154,6 +155,7 @@ public class RESTController extends MultiActionController {
         builder.add("license", attributes, true);
         builder.endAll();
         response.getWriter().print(builder);
+        */
     }
 
     public void getMusicFolders(HttpServletRequest request, HttpServletResponse response) throws Exception {
