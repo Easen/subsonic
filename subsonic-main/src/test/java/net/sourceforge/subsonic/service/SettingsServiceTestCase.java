@@ -51,9 +51,6 @@ public class SettingsServiceTestCase extends TestCase {
         assertEquals("Wrong default index creation hour.", 3, settingsService.getIndexCreationHour());
         assertEquals("Wrong default theme.", "default", settingsService.getThemeId());
         assertEquals("Wrong default stream port.", 0, settingsService.getStreamPort());
-        assertNull("Wrong default license email.", settingsService.getLicenseEmail());
-        assertNull("Wrong default license code.", settingsService.getLicenseCode());
-        assertNull("Wrong default license date.", settingsService.getLicenseDate());
         assertEquals("Wrong default Podcast episode retention count.", 10, settingsService.getPodcastEpisodeRetentionCount());
         assertEquals("Wrong default Podcast episode download count.", 1, settingsService.getPodcastEpisodeDownloadCount());
         assertTrue("Wrong default Podcast folder.", settingsService.getPodcastFolder().endsWith("Podcast"));
@@ -123,7 +120,6 @@ public class SettingsServiceTestCase extends TestCase {
         assertEquals("Wrong index creation hour.", 9, ss.getIndexCreationHour());
         assertEquals("Wrong stream port.", 8080, ss.getStreamPort());
         assertEquals("Wrong license email.", "sindre@foo.bar.no", ss.getLicenseEmail());
-        assertEquals("Wrong license code.", null, ss.getLicenseCode());
         assertEquals("Wrong license date.", new Date(223423412351253L), ss.getLicenseDate());
         assertEquals("Wrong Podcast episode retention count.", 5, settingsService.getPodcastEpisodeRetentionCount());
         assertEquals("Wrong Podcast episode download count.", -1, settingsService.getPodcastEpisodeDownloadCount());

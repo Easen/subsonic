@@ -159,9 +159,9 @@ public class SettingsService {
     private static final long DEFAULT_DOWNLOAD_BITRATE_LIMIT = 0;
     private static final long DEFAULT_UPLOAD_BITRATE_LIMIT = 0;
     private static final long DEFAULT_STREAM_PORT = 0;
-    private static final String DEFAULT_LICENSE_EMAIL = null;
-    private static final String DEFAULT_LICENSE_CODE = null;
-    private static final String DEFAULT_LICENSE_DATE = null;
+    private static final String DEFAULT_LICENSE_EMAIL = "pre-registered@nobody.com";
+    private static final String DEFAULT_LICENSE_CODE = "d7a8d6d5ca8bb391ef1c11540987c573";
+    private static final String DEFAULT_LICENSE_DATE = "1355171437";
     private static final String DEFAULT_DOWNSAMPLING_COMMAND = "ffmpeg -i %s -ab %bk -v 0 -f mp3 -";
     private static final String DEFAULT_HLS_COMMAND = "ffmpeg -ss %o -t %d -i %s -async 1 -b %bk -s %wx%h -ar 44100 -ac 2 -v 0 -f mpegts -vcodec libx264 -preset superfast -acodec libmp3lame -threads 0 -";
     private static final String DEFAULT_JUKEBOX_COMMAND = "ffmpeg -ss %o -i %s -v 0 -f au -";
@@ -210,7 +210,7 @@ public class SettingsService {
     private String[] cachedMusicFileTypesArray;
     private String[] cachedVideoFileTypesArray;
     private List<MusicFolder> cachedMusicFolders;
-    
+
     private static File subsonicHome;
 
     private boolean licenseValidated = true;
@@ -986,7 +986,7 @@ public class SettingsService {
         if (cachedMusicFolders == null) {
             cachedMusicFolders = musicFolderDao.getAllMusicFolders();
         }
-        
+
         List<MusicFolder> result = new ArrayList<MusicFolder>(cachedMusicFolders.size());
         for (MusicFolder folder : cachedMusicFolders) {
             if ((includeDisabled || folder.isEnabled()) && (includeNonExisting || FileUtil.exists(folder.getPath()))) {
@@ -1019,7 +1019,7 @@ public class SettingsService {
      */
     public void createMusicFolder(MusicFolder musicFolder) {
         musicFolderDao.createMusicFolder(musicFolder);
-        cachedMusicFolders = null; 
+        cachedMusicFolders = null;
     }
 
     /**
@@ -1029,7 +1029,7 @@ public class SettingsService {
      */
     public void deleteMusicFolder(Integer id) {
         musicFolderDao.deleteMusicFolder(id);
-        cachedMusicFolders = null; 
+        cachedMusicFolders = null;
     }
 
     /**
@@ -1039,7 +1039,7 @@ public class SettingsService {
      */
     public void updateMusicFolder(MusicFolder musicFolder) {
         musicFolderDao.updateMusicFolder(musicFolder);
-        cachedMusicFolders = null; 
+        cachedMusicFolders = null;
     }
 
     /**
